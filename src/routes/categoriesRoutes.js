@@ -1,7 +1,8 @@
 const express = require('express');
-const { createCategory, createSubcategory, getAllCategories } = require('../controllers/categoriesController');
 const router = express.Router();
-router.post('/category', createCategory)
-router.post('/subcategory', createSubcategory)
+const { createCategory, createSubcategory, getAllCategories } = require('../controllers/categoriesController');
+const { authenticateToken, authorizeAdmin } = require('../middleware/authMiddleware');
+router.post('/category', authenticateToken, authorizeAdmin, createCategory)
+router.post('/subcategory', authenticateToken, authorizeAdmin, createSubcategory)
 router.get('/categories', getAllCategories)
 module.exports = router;
