@@ -15,7 +15,7 @@ class ProductVariant extends Model {
                 modelClass: Product,
                 join: {
                     from: 'product_variants.product_id',
-                    to: 'product.id'
+                    to: 'products.id'
                 }
             }
         }

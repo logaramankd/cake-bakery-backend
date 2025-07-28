@@ -9,19 +9,20 @@ module.exports = {
   development: {
     client: 'mysql2',
     connection: {
-      host:process.env.DB_HOST,
-      user:process.env.DB_USER,
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       port: process.env.DB_PORT
     }
+  }, seeds: {
+    directory: './seeds'
   },
-
   staging: {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -37,7 +38,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {
