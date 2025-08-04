@@ -73,6 +73,16 @@ const deleteSubcategory = async (req, res) => {
     }
 };
 
+const getSubcategory = async (req, res) => {
+    try {
+        const subcategories = await Subcategory.query()
+        res.status(200).json({ message: 'All sub categories', subcategories })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error getting subcategory' });
+    }
+}
+
 const getAllCategories = async (req, res) => {
     try {
         const categories = await Category.query().withGraphFetched('subcategories');
@@ -90,4 +100,5 @@ module.exports = {
     updateSubcategory,
     deleteSubcategory,
     getAllCategories,
+    getSubcategory
 };
